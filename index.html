@@ -2,124 +2,413 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Patrick Yao – Portfolio</title>
+  <title>Yutong Yao (Patrick) | AI Systems & Sports-Tech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-      line-height: 1.6;
-      color: #111;
-    }
-    header {
-      margin-bottom: 32px;
-    }
-    h1 {
-      margin-bottom: 0.1em;
-    }
-    .tagline {
-      margin-top: 0;
-      color: #555;
-    }
-    nav a {
-      margin-right: 16px;
-      text-decoration: none;
-      color: #0070f3;
-      font-size: 0.95rem;
-    }
-    nav {
-      margin: 16px 0 24px;
-    }
-    section {
-      margin-bottom: 32px;
-    }
-    .project {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    .project img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-top: 8px;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Patrick Yao</h1>
-    <p class="tagline">AI & Sports-Tech Entrepreneur • Quarterback • Research-driven Builder</p>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="#top">Yutong Yao</a>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>Selected Projects</h2>
+  <main id="top">
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">AI Systems · Robotics · Sports-Tech</p>
+          <h1 class="hero-title"><span class="highlight">Yutong Yao (Patrick)</span></h1>
+          <p class="hero-subtitle">
+            I build end-to-end AI systems that understand intent, interact with the physical world,
+            and help people perform better—especially in sports.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="cv/cv%203.4.pdf" class="btn" target="_blank" rel="noopener">
+              Download CV
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span>BEng Computer Science @ HKU</span>
+            <span>Research · Entrepreneurship · Quarterback</span>
+          </div>
+        </div>
+        <div class="hero-photo-wrapper">
+          <div class="hero-photo-circle">
+            <img src="assets/personal_pic/YutongYao.jpg" alt="Portrait of Patrick Yao" class="hero-photo" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>AutoScout – AI Football Film Analysis</h3>
-      <p>
-        End-to-end system detecting and tracking all 22 players, mapping them onto a 2D field diagram,
-        and analyzing formations, defensive tendencies, and run/pass patterns.
-      </p>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-lead">
+          I am a Computer Science student at The University of Hong Kong, focused on AI systems,
+          robotics, and sports technology. My long-term goal is to build AI that enhances human
+          performance—systems that can understand intent, provide real-time guidance, and help people
+          make better decisions in both digital and physical environments.
+        </p>
+        <p>
+          I’ve worked across embodied AI, multimodal interfaces, and bioinformatics: building
+          Vision-Language-Action pipelines for fine-grained robotic manipulation, a multimodal
+          “Speak-to-Draw” analytics system, a robotics control bridge for a Franka arm, and a pipeline
+          for detecting A-to-I RNA editing from nanopore signals. Outside the lab, I’m the starting
+          quarterback and captain for the Hong Kong Cobras American football team and previously served
+          as Vice President of CSSA HKU’s Club Management Department.
+        </p>
+        <p>
+          I love working at the intersection of research and real-world systems—turning ideas into
+          working prototypes, and prototypes into products that people actually use.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card-list">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <img src="assets/icons/hku_icon.png" alt="HKU icon" class="card-logo" />
+                <h3>BEng in Computer Science</h3>
+              </div>
+              <span class="tag">2022 – Present</span>
+            </div>
+            <p class="card-subtitle">The University of Hong Kong (HKU)</p>
+            <ul class="card-list-items">
+              <li>First Class Honours; Dean’s List 2022–23 & 2023–24.</li>
+              <li>Focus: AI systems, machine learning, robotics, and software engineering.</li>
+              <li>Active in research, entrepreneurship, and student leadership.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <img src="assets/icons/UCDavis_icon.png" alt="UC Davis icon" class="card-logo" />
+                <h3>Undergraduate Exchange, Computer Science</h3>
+              </div>
+              <span class="tag">Jan – Jun 2025</span>
+            </div>
+            <p class="card-subtitle">University of California, Davis (UC Davis)</p>
+            <ul class="card-list-items">
+              <li>Achieved a perfect GPA (4.0/4.0) across 5 core Computer Science courses during exchange study.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Experience -->
+    <section id="research" class="section">
+      <div class="container">
+        <h2 class="section-title">Research Experience</h2>
+        <p class="section-lead">
+          I’ve contributed to four research projects spanning embodied AI, human–computer interaction,
+          robotics, and bioinformatics.
+        </p>
+
+        <div class="card-list">
+
+          <article class="card">
+            <div class="card-header">
+              <h3>XLANG Lab, HKU — Vision-Language-Action General Policy</h3>
+              <span class="tag">ICML/CoRL 2026 Target</span>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Tao Yu</p>
+            <ul class="card-list-items">
+              <li>
+                Working on generalist VLA policies that follow fine-grained, multi-step robotic
+                manipulation commands instead of only coarse task labels.
+              </li>
+              <li>
+                Built an LLM-assisted data pipeline that discovers open-source manipulation datasets,
+                filters trajectories, and generates first-pass sub-action annotations from task
+                descriptions, videos, and state sequences.
+              </li>
+              <li>
+                Designed the system to reduce annotation time from minutes to seconds and scale toward
+                2M+ fine-grained trajectories.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>VIA Lab, UC Davis — Speak-to-Draw Analytics Tool</h3>
+              <span class="tag">EuroVis 2026 Target</span>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Dongyu Liu</p>
+            <ul class="card-list-items">
+              <li>
+                Developing “Speak-to-Draw,” a multimodal system where users explore time-series data
+                via natural language and interactive visualizations.
+              </li>
+              <li>
+                Co-designed the interaction flow from speech input to query parsing to visual
+                refinement, bridging HCI with backend analytics.
+              </li>
+              <li>
+                Implementing components across frontend, backend, and model integration to support
+                flexible, user-centered exploratory analysis.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>MEDCVR Lab, University of Toronto — Franka Toolbox Bridge</h3>
+              <span class="tag">Mitacs Globalink Scholar</span>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Lueder Kahrs</p>
+            <ul class="card-list-items">
+              <li>
+                Built <code>franka_toolbox_bridge</code>, a framework that exposes safe, high-level
+                APIs for controlling a Franka Emika arm from Python and C++.
+              </li>
+              <li>
+                Abstracted motion primitives, control loops, and error handling to make real-world
+                robot experiments easier and safer to prototype.
+              </li>
+              <li>
+                Integrated the bridge into UTM’s CSC376H5 course, enabling students to run hands-on
+                robotics labs on real hardware.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Bioinformatics Lab, HKU — A-to-I Editing with Nanopore</h3>
+              <span class="tag">Ongoing</span>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Ruibang Luo</p>
+            <ul class="card-list-items">
+              <li>
+                Exploring methods to detect A-to-I RNA editing using electrical signal data from
+                nanopore sequencing.
+              </li>
+              <li>
+                Working on benchmarking pipelines that compare different signal-level and
+                basecalling-based approaches on real datasets.
+              </li>
+              <li>
+                Aiming to better connect long-read sequencing signals with RNA editing biology.
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-lead">
+          These projects combine AI, systems, and real-world constraints, with a particular focus on
+          sports performance and embodied intelligence.
+        </p>
+
+        <div class="card-list cards-two-column">
+          <article class="card">
+            <div class="card-header">
+              <h3>AutoScout — AI Football Film Analysis</h3>
+              <span class="tag">Computer Vision · Sports Analytics</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built an end-to-end system that detects and tracks all 22 players using YOLOv8 +
+                ByteTrack, then projects them onto a 2D field diagram.
+              </li>
+              <li>
+                Analyzes formations and play types, giving coaches and players higher-level tactical
+                insights from raw game film.
+              </li>
+              <li>
+                Designed the full pipeline from model training to visualization and evaluation on
+                real game footage.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Hoopers — Dual-Sensor Basketball Shooting Coach</h3>
+              <span class="tag">Entrepreneurship · Hardware + CV</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Co-founded Hoopers, building a wearable sleeve with IMUs, IR sensing, and computer
+                vision keypoint tracking to capture arm and full-body shooting mechanics.
+              </li>
+              <li>
+                Compared users’ motion against a diverse dataset of professional players to provide
+                personalized shooting feedback.
+              </li>
+              <li>
+                Won 1st place at Hong Kong InnoX and secured HKSTP IDEATION funding (HKD 100K) before
+                critically reassessing product–market fit during incubation.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Speak-to-Draw — Multimodal Time-Series Exploration</h3>
+              <span class="tag">HCI · Visualization</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Implemented components of a multimodal system where users speak queries to generate
+                and refine interactive time-series visualizations.
+              </li>
+              <li>
+                Connected speech/NLP modules with visualization backends to support flexible analytic
+                workflows.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Franka Toolbox Bridge</h3>
+              <span class="tag">Robotics · Systems</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Designed and implemented a bridge layer that lets users command a Franka robot using
+                higher-level motion primitives instead of low-level joint control.
+              </li>
+              <li>
+                Focused on reliability, error handling, and educational usability for robotics labs.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership & Activities -->
+    <section id="leadership" class="section">
+      <div class="container">
+        <h2 class="section-title">Leadership & Activities</h2>
+        <div class="card-list cards-two-column">
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Starting Quarterback & Captain</h3>
+              <span class="tag">Hong Kong Cobras</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Led an underdog American football team as starting QB, responsible for play-calling,
+                in-game adjustments, and team preparation.
+              </li>
+              <li>
+                Developed a film-study routine and practice structure to raise team performance under
+                limited resources.
+              </li>
+              <li>
+                Learned to handle pressure, bounce back from mistakes, and keep teammates aligned on a
+                shared goal.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3>Vice President, Club Management Department</h3>
+              <span class="tag">CSSA HKU</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Managed a team of ~30 members and supported 6 sports teams across logistics,
+                communication, and event planning.
+              </li>
+              <li>
+                Organized large-scale student events and coordinated between committees, venues, and
+                sponsors.
+              </li>
+              <li>
+                Strengthened my ability to balance operations, communication, and people management.
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests & Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Interests</h2>
+          <ul class="pill-list">
+            <li>AI Systems</li>
+            <li>Computer Vision</li>
+            <li>Robotics</li>
+            <li>Sports Analytics</li>
+            <li>Human–AI Interaction</li>
+            <li>Bioinformatics</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-lead">
+            I’m always happy to talk about research, sports-tech, or building real systems.
+          </p>
+          <div class="contact-links">
+            <!-- TODO: replace with your real email -->
+            <a href="mailto:your.email@example.com" class="btn primary">
+              Email Me
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/Patrick15Yao" target="_blank" rel="noopener">
+                GitHub
+              </a>
+              <!-- TODO: replace with your real LinkedIn URL -->
+              <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">
+                LinkedIn
+              </a>
+              <a href="cv/cv%203.4.pdf" target="_blank" rel="noopener">
+                CV (PDF)
+              </a>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Patrick Yao</span>
+      <span>AI Systems · Robotics · Sports-Tech</span>
     </div>
-
-    <div class="project">
-      <h3>Hoopers – Smart Basketball Shooting Coach</h3>
-      <p>
-        Dual-sensor IMU sleeve + computer vision system comparing user shooting motion against a
-        pro-player dataset to deliver personalized feedback.
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Speak-to-Draw – Multimodal Time-Series Tool</h3>
-      <p>
-        UC Davis VIA Lab research project enabling users to explore time-series data through
-        combined speech and sketch interaction.
-      </p>
-    </div>
-  </section>
-
-  <section id="research">
-    <h2>Research</h2>
-    <p>
-      My work focuses on Vision-Language-Action robotics, sports analytics, and interactive
-      human-centered AI tools.
-    </p>
-  </section>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a Computer Science student at HKU, a quarterback for the Hong Kong Cobras, and a founder
-      of sports-tech projects. I build systems that connect AI models to real-world performance.
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Email: your-email@example.com<br>
-      GitHub: <a href="https://github.com/Patrick15Yao">github.com/Patrick15Yao</a><br>
-      LinkedIn: your-linkedin-url
-    </p>
-  </section>
-
-  <footer>
-    Last updated: December 2025.
   </footer>
+
+  <script>
+    // Auto-update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
