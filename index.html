@@ -47,7 +47,7 @@
         </div>
         <div class="hero-photo-wrapper">
           <div class="hero-photo-circle">
-            <img src="assets/personal_pic/YutongYao.jpg" alt="Portrait of Patrick Yao" class="hero-photo" />
+            <img src="assets/personal_pic/YutongYao.png" alt="Portrait of Patrick Yao" class="hero-photo" />
           </div>
         </div>
       </div>
@@ -75,6 +75,114 @@
           I love working at the intersection of research and real-world systems—turning ideas into
           working prototypes, and prototypes into products that people actually use.
         </p>
+      </div>
+    </section>
+
+    <!-- Projects (moved before Education) -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-lead">
+          These projects combine AI, systems, and real-world constraints, with a particular focus on
+          sports performance and embodied intelligence.
+        </p>
+
+        <div class="card-list cards-two-column">
+          <!-- Speak-to-Draw — first -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/speak_to_draw.jpg" alt="Speak-to-Draw project preview" />
+            <div class="card-header">
+              <h3>Speak-to-Draw — Multimodal Time-Series Exploration</h3>
+              <span class="tag">HCI · Visualization</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Implemented components of a multimodal system where users speak queries to generate
+                and refine interactive time-series visualizations.
+              </li>
+              <li>
+                Connected speech/NLP modules with visualization backends to support flexible analytic
+                workflows.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/speak-to-draw.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- AutoScout — second -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/autoscout.jpg" alt="AutoScout project preview" />
+            <div class="card-header">
+              <h3>AutoScout — AI Football Film Analysis</h3>
+              <span class="tag">Computer Vision · Sports Analytics</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built an end-to-end system that detects and tracks all 22 players using YOLOv8 +
+                ByteTrack, then projects them onto a 2D field diagram.
+              </li>
+              <li>
+                Analyzes formations and play types, giving coaches and players higher-level tactical
+                insights from raw game film.
+              </li>
+              <li>
+                Designed the full pipeline from model training to visualization and evaluation on
+                real game footage.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/autoscout.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- Hoopers — third -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/hoopers.jpg" alt="Hoopers project preview" />
+            <div class="card-header">
+              <h3>Hoopers — Dual-Sensor Basketball Shooting Coach</h3>
+              <span class="tag">Entrepreneurship · Hardware + CV</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Co-founded Hoopers, building a wearable sleeve with IMUs, IR sensing, and computer
+                vision keypoint tracking to capture arm and full-body shooting mechanics.
+              </li>
+              <li>
+                Compared users’ motion against a diverse dataset of professional players to provide
+                personalized shooting feedback.
+              </li>
+              <li>
+                Won 1st place at Hong Kong InnoX and secured HKSTP IDEATION funding (HKD 100K) before
+                critically reassessing product–market fit during incubation.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/hoopers.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- Franka Toolbox Bridge — fourth -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/franka_toolbox_bridge.jpg" alt="Franka Toolbox Bridge project preview" />
+            <div class="card-header">
+              <h3>Franka Toolbox Bridge</h3>
+              <span class="tag">Robotics · Systems</span>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Designed and implemented a bridge layer that lets users command a Franka robot using
+                higher-level motion primitives instead of low-level joint control.
+              </li>
+              <li>
+                Focused on reliability, error handling, and educational usability for robotics labs.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/franka-toolbox-bridge.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -218,93 +326,7 @@
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-        <p class="section-lead">
-          These projects combine AI, systems, and real-world constraints, with a particular focus on
-          sports performance and embodied intelligence.
-        </p>
-
-        <div class="card-list cards-two-column">
-          <article class="card">
-            <div class="card-header">
-              <h3>AutoScout — AI Football Film Analysis</h3>
-              <span class="tag">Computer Vision · Sports Analytics</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Built an end-to-end system that detects and tracks all 22 players using YOLOv8 +
-                ByteTrack, then projects them onto a 2D field diagram.
-              </li>
-              <li>
-                Analyzes formations and play types, giving coaches and players higher-level tactical
-                insights from raw game film.
-              </li>
-              <li>
-                Designed the full pipeline from model training to visualization and evaluation on
-                real game footage.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>Hoopers — Dual-Sensor Basketball Shooting Coach</h3>
-              <span class="tag">Entrepreneurship · Hardware + CV</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Co-founded Hoopers, building a wearable sleeve with IMUs, IR sensing, and computer
-                vision keypoint tracking to capture arm and full-body shooting mechanics.
-              </li>
-              <li>
-                Compared users’ motion against a diverse dataset of professional players to provide
-                personalized shooting feedback.
-              </li>
-              <li>
-                Won 1st place at Hong Kong InnoX and secured HKSTP IDEATION funding (HKD 100K) before
-                critically reassessing product–market fit during incubation.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>Speak-to-Draw — Multimodal Time-Series Exploration</h3>
-              <span class="tag">HCI · Visualization</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Implemented components of a multimodal system where users speak queries to generate
-                and refine interactive time-series visualizations.
-              </li>
-              <li>
-                Connected speech/NLP modules with visualization backends to support flexible analytic
-                workflows.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>Franka Toolbox Bridge</h3>
-              <span class="tag">Robotics · Systems</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Designed and implemented a bridge layer that lets users command a Franka robot using
-                higher-level motion primitives instead of low-level joint control.
-              </li>
-              <li>
-                Focused on reliability, error handling, and educational usability for robotics labs.
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- Projects section moved above -->
 
     <!-- Leadership & Activities -->
     <section id="leadership" class="section">

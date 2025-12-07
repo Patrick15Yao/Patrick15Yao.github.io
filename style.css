@@ -244,6 +244,21 @@ ul {
   background-color: #f9fafb;
 }
 
+.project-card .project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  margin-bottom: 0.75rem;
+  background-color: #e5e7eb; /* placeholder when image missing */
+}
+
+.project-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
 .card-header {
   display: flex;
   flex-wrap: wrap;

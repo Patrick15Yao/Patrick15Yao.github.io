@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speak-to-Draw</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="project-section">
+
+      <h1>1.Speak-to-Draw — Multimodal Time-Series Pattern Search Interface</h1>
+
+      <p>UC Davis VIA Lab — Jan 2025 to Jun 2025</p>
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_1.png" alt="Speak-to-Draw figure 1">
+      </div>
+
+      <h2>1.1 Project Overview</h2>
+
+      <p>Speak-to-Draw is a multimodal, visualization-driven human-AI interface that enables users to explore large time-series datasets using natural-language queries and freehand sketching.</p>
+      <p>The system bridges intelligent algorithms with intuitive interaction, making complex analytical tasks accessible to non-expert users. My contribution covered the conversational module, visualization redesign, and backend pattern-matching enhancements.</p>
+
+      <!-- Image 1 -->
+      
+
+      <h2>1.2 Interactive Visualization &amp; Human-AI Collaboration</h2>
+
+      <p>I co-designed the main interface to integrate all three modalities in a cohesive, interactive layout:</p>
+
+      <h3>(1) Chat Panel (Left)</h3>
+
+      <p>A conversational interface where users iteratively refine search intent and learn about the dataset.</p>
+
+      <h3>(2) Query-by-Text Panel (Center)</h3>
+
+      <p>Global/local feature descriptors and segments matched via feature-based analysis.</p>
+
+      <h3>(3) Query-by-Sketch Panel (Right)</h3>
+
+      <p>A sketch canvas where users draw a target pattern.
+      I added shape normalization, multi-scale alignment, and similarity scoring so that the system can robustly compare user sketches with real data segments.</p>
+
+      <h3>(4) Full Time-Series View (Bottom)</h3>
+
+      <p>A unified visualization that overlays matched regions from both natural-language and sketch queries onto the full dataset.</p>
+
+      
+
+      <h2>1.3 User flow</h2>
+
+      <h3>(1)  Pick a dataset and time window</h3>
+      <p>At the top bar, the user selects a dataset (e.g., Bitcoin) and a query window size. This defines which time series is being explored and the typical length of segments the system will search over.</p>
+
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_2.png" alt="Speak-to-Draw figure 1">
+      </div>
+
+      <h3>(2) Start in the chat box (left panel)</h3>
+      <p>In the chat panel, the user can:</p>
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_3.png" alt="Speak-to-Draw figure 1">
+      </div>
+
+      <p>Ask for general information like “How should I interpret this dataset?” or “Summarize this time series.”</p>
+
+      <p>Specify the pattern they are looking for in natural language, for example:
+      “find me patterns that are globally high, then rise, and then fall.”</p>
+
+      <p>The chatbot interprets the message and confirms the query in its response.</p>
+
+      <h3>(3) Natural language → feature descriptors (top-middle)</h3>
+      <p>From the user’s text query, the system extracts global and local feature descriptors and populates the “Feature Descriptions” panel in the upper middle:</p>
+
+      <p>Global features (e.g., high)</p>
+
+      <p>Local features (e.g., rising, falling)</p>
+
+      <p>The user can add, delete, or reorder these descriptors with the + / – controls to fine-tune what counts as a match, then click “Update Matches” to re-run the search.</p>
+
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_4.png" alt="Speak-to-Draw figure 1">
+      </div>
+
+      <h3>(4)  Inspect text-based matches (middle panels)</h3>
+      <p>Based on the active feature descriptors, the “QbT Matched Segments” panel shows segments that satisfy the textual pattern. Each mini-plot is annotated to show where the series is rising or falling.</p>
+
+      <p>Clicking a segment selects it and highlights its position in the Full Time Series View at the bottom.</p>
+
+      <p>Text-query matches are shown in yellow in the full-series plot, so users see where these patterns occur in the global context.</p>
+
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_5.png" alt="Speak-to-Draw figure 1">
+      </div>
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_6.png" alt="Speak-to-Draw figure 1">
+      </div>
+      <h3>(5)  Refine the query by sketch (top-right)</h3>
+      <p>To express a more precise shape, the user can move to the “Query by Sketch” area:</p>
+
+      <p>Selected segments can be used as a background reference band.</p>
+
+      <p>On top of this reference, the user draws a red curve representing the ideal pattern they have in mind (for example, a smoother peak or sharper drop).</p>
+
+      <p>This lets users combine real data examples with their own mental model of the pattern.</p>
+
+       <!-- Image 5 -->
+       <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_7.png" alt="Speak-to-Draw figure 5">
+      </div>
+      <h3>(6) Run sketch-based matching (right-middle)</h3>
+      <p>When the user submits the sketch query:</p>
+
+      <p>The system compares the drawn curve against all candidate segments using normalized, multi-scale similarity measures.</p>
+
+      <p>The “QbS Matched Segments” panel shows the top matches ranked by similarity.</p>
+
+      <p>These sketch-based matches are also projected onto the Full Time Series View.</p>
+
+      <p>Sketch matches are shown in red in the bottom plot, allowing users to distinguish them from yellow text-query matches.</p>
+
+     
+
+      <h3>(7) Compare, iterate, and refine (bottom view)</h3>
+      <p>In the Full Time Series View, users can:</p>
+
+      <p>Toggle checkboxes to show or hide QbT (text) and QbS (sketch) matches.</p>
+
+      <p>Visually compare where each type of match occurs in the overall time series.</p>
+
+      <p>Go back to the chat, feature descriptors, or sketch to iteratively refine their intent until the highlighted regions match what they are looking for.</p>
+
+      <p>This loop—chat → feature descriptors → text matches → sketch refinement → sketch matches → global view—lets users gradually align the system’s search behavior with their own understanding of the data.</p>
+
+      <div class="std-img">
+        <img src="../assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_8.png" alt="Speak-to-Draw figure 1">
+      </div>
+      <h2>1.4 Backend Enhancements for Feature &amp; Sketch Matching</h2>
+
+      <p>To support the multimodal interface, I improved the underlying analytics engine:</p>
+
+      <h3>1.4.1 Feature-Based Matching</h3>
+
+      <p>refined detection of global/local features (trends, spikes, fluctuations),</p>
+
+      <p>improved robustness for stable or noisy segments,</p>
+
+      <p>added customizable thresholds for “rising,” “falling,” etc.</p>
+
+      <h3>1.4.2 Sketch-Based Matching</h3>
+
+      <p>synchronized normalization between sketches and time-series windows,</p>
+
+      <p>incorporated multi-scale alignment,</p>
+
+      <p>developed a weighted shape-similarity scoring method.</p>
+
+      <p>These changes increased matching accuracy and adaptability across diverse datasets. </p>
+
+      <h2>1.5 Impact</h2>
+
+      <p>Speak-to-Draw advances the vision of intuitive interfaces for intelligent analytics, allowing users to search and interpret complex patterns without programming knowledge.
+      My work strengthened the system’s usability, analytical robustness, and multimodal reasoning capability, helping transform the project from a prototype into a practical research tool. It is aiming to submit to EuroVis 2026</p>
+
+    </section>
+  </main>
+</body>
+</html>
