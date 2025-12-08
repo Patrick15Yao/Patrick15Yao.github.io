@@ -1,24 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Franka Toolbox Bridge — Project Details</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <title>Franka Toolbox Bridge</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="section">
-    <div class="container">
-      <a href="../index.html#projects" class="btn">← Back to Projects</a>
-      <h1 class="section-title" style="margin-top: 1rem;">Franka Toolbox Bridge</h1>
-      <img class="project-image" src="../assets/project_pic/franka_toolbox_bridge.jpg" alt="Franka Toolbox Bridge preview" style="margin: 1rem 0;" />
-      <ul class="card-list-items">
-        <li>Bridge layer to command a Franka robot with higher-level motion primitives.</li>
-        <li>Emphasis on reliability, error handling, and educational usability.</li>
-      </ul>
-    </div>
+  <main class="container">
+    <section class="project-section">
+
+      <h1>3. Franka Toolbox Bridge — Unified Simulation & Real-Robot ControlFramework</h1>
+
+      <p>University of Toronto Robotics Lab — 2025</p>
+
+      <p>Franka Toolbox Bridge is a unified Python framework that allows the same code to control the Franka Emika Panda robot in both simulation and real hardware, simply by switching one parameter.
+      It integrates the Python Robotics Toolbox (RTB) for visualization and Franky/libfranka for real hardware control, removing the need for ROS/C++ and enabling safe, accessible, and reproducible robot programming.</p>
+
+      <div class="std-img">
+        <img src="../assets/project_pic/Franky_Toolbox_Bridge/1.gif" alt="Franka demo" style="width: 500px; max-width: 100%; height: auto;">
+      </div>
+      <div class="std-img">
+        <img src="../assets/project_pic/Franky_Toolbox_Bridge/2.gif" alt="Franka demo" style="width: 500px; max-width: 100%; height: auto;">
+      </div>
+      <div class="std-img">
+        <img src="../assets/project_pic/Franky_Toolbox_Bridge/3.gif" alt="Franka demo" style="width: 500px; max-width: 100%; height: auto;">
+      </div>
+      <h2>3.1 Background &amp; Problem</h2>
+
+      <p>Before this framework, users had to work with two separate systems:</p>
+
+      <p>RTB simulation — accessible, good for visualization, but cannot control real robots.</p>
+
+      <p>libfranka (C++/ROS) — controls the real robot, but has no visualization, no safety preview, and requires heavy setup.</p>
+
+      <p>Because these systems use different trajectory planners, results were inconsistent and difficult to reproduce.
+      Users had to maintain two codebases, and had no way to preview trajectories before executing them on hardware—a major safety concern .</p>
+
+      <h2>3.2 System Overview &amp; Core Capabilities</h2>
+
+      <p>I developed Franka-Toolbox-Bridge as a single, cohesive Python API that unifies simulation and real control:</p>
+
+      <p>One codebase for both worlds — develop safely in Swift/RTB, then deploy to the real robot with no code changes.</p>
+
+      <p>Three control modes (from GitHub page 2):</p>
+
+      <p>Simulation-only (Swift)</p>
+
+      <p>Real Robot Control (libfranka/Franky)</p>
+
+      <p>Sim-Lead-Real (Predictive Twin) — simulation runs ahead of hardware to preview and ensure safe execution.</p>
+
+      <p>Multi-robot support — synchronize multiple Panda arms for cooperative tasks.</p>
+
+      <p>Joint, Cartesian, velocity, and gripper control via a simple, unified set of functions.</p>
+
+      <p>No ROS required, installation possible via one-line script .</p>
+
+      <p>This design allows developers to test any trajectory in simulation, verify feasibility &amp; collisions, then confidently execute it on the real robot.</p>
+
+      <h2>3.3 My Contributions</h2>
+
+      <p>Based on your research statement and repo:</p>
+
+      <h3>1. Architecture &amp; API Development</h3>
+
+      <p>Built the Control Bridge, the core abstraction layer that handles all three modes (sim-only, real-only, predictive).</p>
+
+      <p>Implemented jointM and CartesianM control modules inside the unified API .</p>
+
+      <p>Added multi-robot support for synchronized motion and handoff tasks.</p>
+
+      <h3>2. Trajectory Planning Integration</h3>
+
+      <p>Integrated the Ruckig real-time trajectory generator into simulation so that simulation and hardware share identical jerk-limited trajectories—fixing the mismatch between RTB and libfranka planning pipelines .</p>
+
+      <h3>3. Safety Enhancements</h3>
+
+      <p>Designed the Sim-Lead-Real predictive mode, allowing the robot to “ghost-preview” motions 3 seconds ahead, letting users visually verify safety before hardware executes .</p>
+
+      <p>Implemented safeguards linked to Swift visualization.</p>
+
+      <h3>4. Critical Bug Discovery &amp; Fix Contribution</h3>
+
+      <p>Identified a control-cycle instability in Franky (1 ms control loop misses leading to oscillations).</p>
+
+      <p>Proposed a fix that was later adopted by the Franky maintainer, improving reliability for the research community .</p>
+
+      <h3>5. Educational Adoption</h3>
+
+      <p>The framework was used in CSC376H5 – Fundamentals of Robotics at University of Toronto Mississauga, supporting real-robot teaching demos and assignments .</p>
+
+      <h2>3.4 How It Works — Step-by-Step (With Screenshots)</h2>
+
+      <h3>1. Define Robots</h3>
+
+      <p>Users specify the robot’s IP (for real control) and its pose in RTB/Swift.</p>
+
+      <pre><code>robot1 = Robot(ip="192.168.1.108", x=0, y=0, z=0, rz=0)
+
+robot2 = Robot(ip="192.168.1.107", x=1.175, y=0.05, z=0, rz=np.pi)
+</code></pre>
+
+      <h3>2. Choose Control Mode (Single Line Change)</h3>
+
+      <pre><code>bridge = MyPanda(use_real=False, predictive_delay_ms=-1)             # Simulation
+
+bridge = MyPanda(use_real=True, predictive_delay_ms=-1)              # Real Robot
+
+bridge = MyPanda(use_real=True, predictive_delay_ms=3000)            # Sim-Lead-Real
+</code></pre>
+
+      <h3>3. Run Joint / Cartesian Motions</h3>
+
+      <pre><code>bridge.robot_jointPose(robot1, q_target)
+
+bridge.robot_cartesianPose(robot1, se3_target)
+
+bridge.robot_gripper_move(robot1, target_width=0.04, speed=0.02)
+</code></pre>
+
+      <h3>4. Preview in Simulation, Then Execute on Robot</h3>
+
+      <p>Using a single script, users can:</p>
+
+      <p>verify trajectory in Swift (simulation),</p>
+
+      <p>preview a semi-transparent “ghost motion” (predictive mode),</p>
+
+      <p>then run on the real hardware with confidence.</p>
+
+      <h2>3.5 Impact</h2>
+
+      <p>Educational — adopted at UTM Robotics to teach real robot motion control in course CSC376H5 – Fundamentals of Robotics</p>
+
+      <p>Safety — predictive simulation drastically reduces hardware risk.</p>
+
+      <p>Accessibility — eliminates the need for ROS/C++, enabling beginners to program a real robot entirely in Python.</p>
+
+      <p>Research — supports multi-robot collaboration, trajectory preview, and reproducible experiments.</p>
+
+      <p>Community Contribution — upstream bug fix improved the stability of Franky/libfranka.</p>
+
+    </section>
   </main>
 </body>
 </html>
-
-

@@ -1,25 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AutoScout — Project Details</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <title>AutoScout</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="section">
-    <div class="container">
-      <a href="../index.html#projects" class="btn">← Back to Projects</a>
-      <h1 class="section-title" style="margin-top: 1rem;">AutoScout — AI Football Film Analysis</h1>
-      <img class="project-image" src="../assets/project_pic/autoscout.jpg" alt="AutoScout preview" style="margin: 1rem 0;" />
-      <ul class="card-list-items">
-        <li>Detects and tracks all 22 players using YOLOv8 + ByteTrack, then projects to a 2D field.</li>
-        <li>Analyzes formations and play types for higher-level tactical insights.</li>
-        <li>End-to-end pipeline from model training to visualization and evaluation on real game footage.</li>
-      </ul>
-    </div>
+  <main class="container">
+    <section class="project-section">
+
+      <h1>2. AutoScout — AI System for Automated American Football Film Analysis</h1>
+
+      <h2>Problem &amp; Motivation</h2>
+
+      <p>Manual football film study requires experts to watch and annotate hundreds of hours of broadcast footage each season, making the process labor-intensive, time-consuming, and prone to human error. Existing research typically focuses only on single components such as formation recognition or homography alignment, and no prior work provides a full end-to-end pipeline that goes from raw broadcast film to tactical interpretation .</p>
+
+      <p>AutoScout aims to close this gap by building a system that automates detection, tracking, field mapping, and tactical pattern recognition.</p>
+
+      <!-- === DIAGRAM 1 FROM WORD FILE === -->
+      <div class="std-img">
+        <img src="../assets/project_pic/AutoScout/AutoScout_Pic_1.png" alt="AutoScout diagram 1" style="width: 500px; max-width: 100%; height: auto;">
+      </div>
+
+      <h2>Phase 1 — Detection, Tracking &amp; 2D Field Mapping</h2>
+
+      <p>This stage converts raw broadcast footage into structured spatial data.</p>
+
+      <h3>Player Detection (YOLOv8).</h3>
+      <p>A YOLOv8 model is fine-tuned on a custom dataset of 1,500 manually labeled broadcast frames, enabling reliable detection of offensive players, defensive players, and referees .</p>
+
+      <h3>Identity Tracking (ByteTrack).</h3>
+      <p>ByteTrack assigns consistent player IDs across consecutive frames, forming continuous movement trajectories for all 22 players throughout the play. </p>
+
+      <h3>Landmark Detection (YOLO+OpenCV).</h3>
+      <p>YOLO and OpenCV are used to detect the two in-bounds hash-mark lines, which serve as geometric anchors for camera–field alignment. These landmarks are extracted using supervised detection methods trained on the same dataset .</p>
+
+      <h3>Homography Estimation (RANSAC).</h3>
+      <p>A RANSAC-based homography algorithm computes the 3×3 transformation matrix that maps pixel positions to real-field coordinates, allowing all players to be projected onto a standardized 2D top-down field view .</p>
+
+      <h3>Outcome.</h3>
+      <p>The output of Phase 1 is a 2D field visualization containing all player trajectories, serving as the basis for tactical interpretation.</p>
+
+      <h2>Phase 2 — Pattern Recognition</h2>
+
+      <p>(Corresponds to the second diagram, upper half)</p>
+
+      <!-- === DIAGRAM 2 FROM WORD FILE === -->
+      <div class="std-img">
+        <img src="../assets/project_pic/AutoScout/AutoScout_Pic_2.png" alt="AutoScout diagram 2" style="width: 400px; max-width: 100%; height: auto;">
+      </div>
+
+      <p>Using the 2D trajectories generated in Phase 1, supervised learning models classify both offensive and defensive structural elements:</p>
+
+      <h3>Offensive labels include:</h3>
+
+      <p>Formation (e.g., Twins Right)</p>
+
+      <p>Personnel groups (e.g., 11-personnel)</p>
+
+      <p>Play type (run vs pass)</p>
+
+      <p>Protection schemes (e.g., 7-man protection)</p>
+
+      <h3>Defensive labels include:</h3>
+
+      <p>Coverage type (e.g., Cover 1, Cover 2)</p>
+
+      <p>Front alignment (e.g., 4-3)</p>
+
+      <p>Blitz tendencies</p>
+
+      <p>Man vs zone structure</p>
+
+      <p>This turns raw trajectories into structured tactical metadata.</p>
+
+      <h2>Phase 3 — Insights &amp; Prediction</h2>
+
+      <p>(Corresponds to second diagram, bottom half)</p>
+
+      <p>Aggregated labels from multiple games are summarized into team-level statistical profiles, such as:</p>
+
+      <p>formation frequency,</p>
+
+      <p>run–pass balance,</p>
+
+      <p>coverage tendencies,</p>
+
+      <p>personnel usage .</p>
+
+      <p>A lightweight supervised model then predicts likely play tendencies—such as expected coverage or blitz probability—based on historical patterns. The system finally provides data-driven play-call recommendations for scouting and game preparation.</p>
+
+      <h2>Challenges &amp; Mitigation</h2>
+
+      <p>The most difficult scenario occurs near the line of scrimmage, where players overlap heavily, and linemen adopt crouched postures. To address this:</p>
+
+      <h3>Training set expansion with overlapped-focused samples.</h3>
+
+      <h3>Two-stage post-processing:</h3>
+
+      <p>accept downfield detections first,</p>
+
+      <p>infer remaining players near the trench based on confidence ordering and expected player count.</p>
+
+      <p>This greatly stabilizes detection in congested regions .</p>
+
+      <h2>Current Status</h2>
+
+      <p>The detection, tracking, and landmark modules have been completed, and the system architecture has been finalized. Pattern recognition, play prediction, and interface implementation are in progress according to the scheduled milestones (Jan–Mar 2026) .</p>
+
+      <p>The diagrams presented in this portfolio represent the finalized system design and prototype visualizations based on the completed components.</p>
+
+    </section>
   </main>
 </body>
 </html>
-
-

@@ -1,25 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hoopers — Project Details</title>
-  <link rel="stylesheet" href="../style.css" />
-</head>
-<body>
-  <main class="section">
-    <div class="container">
-      <a href="../index.html#projects" class="btn">← Back to Projects</a>
-      <h1 class="section-title" style="margin-top: 1rem;">Hoopers — Dual-Sensor Basketball Shooting Coach</h1>
-      <img class="project-image" src="../assets/project_pic/hoopers.jpg" alt="Hoopers preview" style="margin: 1rem 0;" />
-      <ul class="card-list-items">
-        <li>Wearable sleeve with IMUs, IR sensing, and CV keypoint tracking for shooting mechanics.</li>
-        <li>Compares user motion against pro datasets to provide personalized feedback.</li>
-        <li>Won Hong Kong InnoX; secured HKSTP IDEATION funding.</li>
-      </ul>
-    </div>
-  </main>
-</body>
-</html>
+<section class="project-section">
+  <h1>5. Hoopers AI-Powered Basketball Shooting Analysis Sleeve</h1>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_1.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <h2>Overview</h2>
+  <p>
+    Hoopers was my first startup, born from a simple observation: amateur players rarely have access 
+    to professional shooting coaches. We set out to bring coaching-level feedback to anyone, anywhere 
+    by combining wearable sensing with computer vision and pro-level shooting data.
+  </p>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_6.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
 
+  <h2>System Design</h2>
+  <p>
+    Our prototype used a wearable sleeve with <strong>3 IMUs</strong> and <strong>1 IR sensor</strong>, connected via Bluetooth, 
+    to capture detailed motion of the shooting arm and wrist. In parallel, we used <strong>OpenPose</strong> in post-processing 
+    to extract full-body keypoints from video, tracking joints such as the ankle, knee, hip, elbow, wrist, and shoulder.
+  </p>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_2.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_3.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
 
+  <p>
+    From these signals, we computed velocity, acceleration, and joint movement patterns, then compared each player’s 
+    shooting motion against a professional dataset consisting of <strong>200 hardware+video samples</strong> and 
+    <strong>500 NBA video-only samples</strong>. We clustered pros into four archetypal shooting styles and matched each user 
+    to the nearest style based on timing and joint-angle dynamics, generating targeted feedback to help them 
+    “close the gap” toward that style.
+  </p>
+
+  <h2>Recognition & Outcome</h2>
+  <p>
+    With this prototype, our team (myself as CEO together with Justin Zhao, Adrian Wu, and Ivan Yiu) won 
+    <strong>No.1 in the HK InnoX Entrepreneurship Camp</strong>, received a <strong>HKD 10K prize</strong>, and secured 
+    <strong>HKSTP Ideation funding of HKD 100K</strong>. However, the project ultimately failed during incubation. 
+    Through scaled user interviews and questionnaires, amateur players told us they had no time or desire to train 
+    that seriously, while professional teams found the insights redundant with what coaches already provided. 
+    Despite strong engineering, we had built something misaligned with what people actually valued.
+  </p>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_5.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <div class="std-img">
+    <img src="../assets/project_pic/Hoopers/Hoopers_Pic_8.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <h2>What I Learned</h2>
+  <p>
+    Hoopers taught me that building impressive technology is not enough; it has to be grounded in a real, felt need.
+    We were solving a “cool” problem, not a human problem. That realization reshaped how I approached entrepreneurship 
+    and engineering: <strong>start with real human motivation, then build the technology around it.</strong>
+  </p>
+
+  <h2>How This Failure Led to Patky</h2>
+  <p>
+    Instead of letting the failure discourage me, I stepped back and applied the lesson to my next venture. This time, 
+    I began with user psychology rather than sensors or models. Many amateur players were less interested in performance 
+    analytics and more eager to express identity, feel recognized, and share something meaningful with teammates. 
+    Guided by that insight, I created <strong>Patky Sports Card</strong>, a small venture that produces personalized trading cards 
+    for amateur athletes.
+  </p>
+
+  <p>
+    Early production was slow—segmentation, layer alignment, and bio writing took hours per card. By integrating 
+    <strong>SAM3</strong> for fast segmentation, automating layer handling, and generating bios through prompt-engineered scripts, 
+    I reduced creation time from hours to minutes. The result was a product users genuinely wanted: we have now served 
+    <strong>200+ customers</strong>, partnered with teams in Hong Kong and Zhuhai, and built a steady revenue of around 
+    <strong>HKD 2,000 per month</strong>. This second attempt reinforced a lesson I carry forward: 
+    <strong>technology becomes meaningful only when it resonates with real people.</strong>
+  </p>
+  <div class="std-gallery">
+    <img src="../assets/project_pic/Patky/Patky_Pic_1.png" alt="Patky preview 1" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+    <img src="../assets/project_pic/Patky/Patky_Pic_2.png" alt="Patky preview 2" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+    <img src="../assets/project_pic/Patky/Patky_Pic_3.png" alt="Patky preview 3" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+  </div>
+
+</section>
