@@ -244,6 +244,12 @@ ul {
   background-color: #f9fafb;
 }
 
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 540px; /* ensures consistent height so actions can sit at bottom */
+}
+
 .project-card .project-image {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -254,7 +260,7 @@ ul {
 }
 
 .project-actions {
-  margin-top: 0.6rem;
+  margin-top: auto; /* push actions to bottom */
   display: flex;
   gap: 0.5rem;
 }
@@ -299,6 +305,20 @@ ul {
   border-radius: 999px;
   padding: 0.2rem 0.6rem;
   white-space: nowrap;
+}
+
+.tag-group {
+  display: flex;
+  gap: 0.4rem;
+  flex-basis: 100%;      /* move tag group to a new line under the title */
+  flex-wrap: wrap;       /* allow multiple tags to wrap if needed */
+  margin-top: 0.15rem;   /* small spacing from title */
+}
+
+.tag-accent {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1d4ed8;            /* blue-700 */
+  border: 1px solid #bfdbfe; /* blue-200 */
 }
 
 .card-list-items {

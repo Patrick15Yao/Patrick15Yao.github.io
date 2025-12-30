@@ -28,11 +28,10 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">AI Systems · Robotics · Sports-Tech</p>
+          <p class="eyebrow">APPLIED AI SYSTEMS · ROBOTICS · HCI</p>
           <h1 class="hero-title"><span class="highlight">Yutong Yao (Patrick)</span></h1>
           <p class="hero-subtitle">
-            I build end-to-end AI systems that understand intent, interact with the physical world,
-            and help people perform better—especially in sports.
+            I build end-to-end applied AI systems that connect multimodal perception to structured representations and decision-making through human-in-the-loop interaction.
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn primary">View Projects</a>
@@ -49,6 +48,164 @@
           <div class="hero-photo-circle">
             <img src="assets/personal_pic/YutongYao.png" alt="Portrait of Patrick Yao" class="hero-photo" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About moved below Projects -->
+
+    <!-- Projects (moved before Education) -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-lead">
+          These projects combine AI, systems, and real-world constraints, with a particular focus on
+          sports performance and embodied intelligence.
+        </p>
+
+        <div class="card-list cards-two-column">
+          <!-- Speak-to-Draw — first -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_1.png" alt="Speak-to-Draw project preview" />
+            <div class="card-header">
+              <h3>Speak-to-Draw — LLM-Powered Multimodal Querying for Time-Series Data</h3>
+              <div class="tag-group">
+                <span class="tag">HCI · Visualization</span>
+                <span class="tag tag-accent">SUBMITTED · EUROVIS 2026</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built a <strong>multimodal</strong> time-series querying interface combining <strong>natural-language</strong> and <strong>sketch-based</strong> input for human-in-the-loop analysis.
+              </li>
+              <li>
+                Implemented an <strong>LLM-driven</strong> pipeline that maps language to structured queries for coarse retrieval, with <strong>sketches</strong> refining local temporal patterns.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/speak-to-draw.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- AutoScout — second -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/AutoScout/AutoScout_Pic_1.png" alt="AutoScout project preview" />
+            <div class="card-header">
+              <h3>AutoScout — AI Football Film Analysis</h3>
+              <div class="tag-group">
+                <span class="tag">Computer Vision · Sports Analytics</span>
+                <span class="tag tag-accent">Capstone Project</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built an end-to-end <strong>computer vision</strong> system that converts raw football game footage into structured tactical and <strong>play-call insights.</strong>
+              </li>
+              <li>
+                Implemented a single-camera vision pipeline using fine-tuned <strong>YOLOv8</strong>, <strong>homography</strong>-based field mapping</strong>, and <strong>trajectory-level supervision</strong> to infer formations, play types, and tactical patterns.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/autoscout.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- Hoopers — third -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/Hoopers/Hoopers_Pic_1.png" alt="Hoopers project preview" />
+            <div class="card-header">
+              <h3>Hoopers — Dual-Sensor Basketball Shooting Coach</h3>
+              <div class="tag-group">
+                <span class="tag">Computer Vision · Hardware</span>
+                <span class="tag tag-accent">Entrepreneurship</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Co-founded Hoopers, building a <strong>wearable sleeve</strong> with IMUs, IR sensing, and <strong>computer vision</strong> keypoint tracking to capture arm and full-body shooting mechanics.
+                vision keypoint tracking to capture arm and full-body shooting mechanics.
+              </li>
+              <li>
+                Compared users’ motion against a diverse dataset of professional players to provide
+                <strong>personalized shooting feedback.</strong>
+              </li>
+              <li>
+                Won <strong>1st place</strong> at Hong Kong InnoX and secured HKSTP IDEATION funding <strong>(HKD 100K)</strong> 
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/hoopers.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- Franka Toolbox Bridge — fourth -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/Franky_Toolbox_Bridge/Franky_Toolbox_Bridge.png" alt="Franka Toolbox Bridge project preview" />
+            <div class="card-header">
+              <h3>Franka Toolbox Bridge</h3>
+              <div class="tag-group">
+                <span class="tag">Robotics · Systems</span>
+                <span class="tag tag-accent">Summer Research Intern</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built a Python-based framework that unifies <strong>simulation</strong> and <strong>real-world</strong> control of the Franka Emika Panda through a single, <strong>ROS-free</strong> API.
+              </li>
+              <li>
+                The framework has been adopted in course <strong>CSC376H5 – Fundamentals of Robotics</strong> at the University of Toronto Mississauga to teach real robot motion control.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/franka-toolbox-bridge.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- XLANG — placeholder -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/icons/XLANG_icon.png" alt="XLANG project preview" />
+            <div class="card-header">
+              <h3>XLANG — Vision-Language-Action General Policy</h3>
+              <div class="tag-group">
+                <span class="tag">Robotics · VLA</span>
+                <span class="tag tag-accent">Target · ICML 2026</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                The project targets training generalizable <strong>VLA policies</strong> that can follow <strong>fine-grained</strong> manipulation instructions beyond coarse, high-level commands.
+              </li>
+              <li>
+                I helped build an AI-assisted data pipeline that integrates <strong>LLMs</strong> and <strong>Grounding DINO</strong> to generate first-pass fine-grained annotations for <strong>2M+</strong> manipulation trajectories, substantially reducing annotation effort.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/xlang.html" class="btn primary">View Details</a>
+            </div>
+          </article>
+
+          <!-- Patky — placeholder -->
+          <article class="card project-card">
+            <img class="project-image" src="assets/project_pic/Patky/Patky_Pic_2.png" alt="Patky project preview" />
+            <div class="card-header">
+              <h3>Patky — Personalized Sports Trading Cards</h3>
+              <div class="tag-group">
+                <span class="tag">AI-POWERED AUTOMATION · Product</span>
+                <span class="tag tag-accent">Entrepreneurship</span>
+              </div>
+            </div>
+            <ul class="card-list-items">
+              <li>
+                Built an AI-assisted design pipeline that uses <strong>SAM2</strong> for automated player segmentation and <strong>LLMs</strong> for content generation to streamline the creation of <strong>personalized sports trading cards</strong>.
+              </li>
+              <li>
+                Launched and operated the product with <strong>200+</strong> customers and sustained <strong>HKD 2,000+</strong> in monthly revenue, validating demand for AI-driven creative automation.
+              </li>
+            </ul>
+            <div class="project-actions">
+              <a href="projects/patky.html" class="btn primary">View Details</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -75,138 +232,6 @@
           I love working at the intersection of research and real-world systems—turning ideas into
           working prototypes, and prototypes into products that people actually use.
         </p>
-      </div>
-    </section>
-
-    <!-- Projects (moved before Education) -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
-        <p class="section-lead">
-          These projects combine AI, systems, and real-world constraints, with a particular focus on
-          sports performance and embodied intelligence.
-        </p>
-
-        <div class="card-list cards-two-column">
-          <!-- Speak-to-Draw — first -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/project_pic/SpeakToDraw/SpeakToDraw_Pic_1.png" alt="Speak-to-Draw project preview" />
-            <div class="card-header">
-              <h3>Speak-to-Draw — Multimodal Time-Series Exploration</h3>
-              <span class="tag">HCI · Visualization</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Implemented components of a multimodal system where users speak queries to generate
-                and refine interactive time-series visualizations.
-              </li>
-              <li>
-                Connected speech/NLP modules with visualization backends to support flexible analytic
-                workflows.
-              </li>
-            </ul>
-            <div class="project-actions">
-              <a href="projects/speak-to-draw.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-
-          <!-- AutoScout — second -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/project_pic/AutoScout/AutoScout_Pic_1.png" alt="AutoScout project preview" />
-            <div class="card-header">
-              <h3>AutoScout — AI Football Film Analysis</h3>
-              <span class="tag">Computer Vision · Sports Analytics</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Built an end-to-end system that detects and tracks all 22 players using YOLOv8 +
-                ByteTrack, then projects them onto a 2D field diagram.
-              </li>
-              <li>
-                Analyzes formations and play types, giving coaches and players higher-level tactical
-                insights from raw game film.
-              </li>
-              <li>
-                Designed the full pipeline from model training to visualization and evaluation on
-                real game footage.
-              </li>
-            </ul>
-            <div class="project-actions">
-              <a href="projects/autoscout.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-
-          <!-- Hoopers — third -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/project_pic/Hoopers/Hoopers_Pic_1.png" alt="Hoopers project preview" />
-            <div class="card-header">
-              <h3>Hoopers — Dual-Sensor Basketball Shooting Coach</h3>
-              <span class="tag">Entrepreneurship · Hardware + CV</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Co-founded Hoopers, building a wearable sleeve with IMUs, IR sensing, and computer
-                vision keypoint tracking to capture arm and full-body shooting mechanics.
-              </li>
-              <li>
-                Compared users’ motion against a diverse dataset of professional players to provide
-                personalized shooting feedback.
-              </li>
-              <li>
-                Won 1st place at Hong Kong InnoX and secured HKSTP IDEATION funding (HKD 100K) before
-                critically reassessing product–market fit during incubation.
-              </li>
-            </ul>
-            <div class="project-actions">
-              <a href="projects/hoopers.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-
-          <!-- Franka Toolbox Bridge — fourth -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/project_pic/Franky_Toolbox_Bridge/Franky_Toolbox_Bridge.png" alt="Franka Toolbox Bridge project preview" />
-            <div class="card-header">
-              <h3>Franka Toolbox Bridge</h3>
-              <span class="tag">Robotics · Systems</span>
-            </div>
-            <ul class="card-list-items">
-              <li>
-                Designed and implemented a bridge layer that lets users command a Franka robot using
-                higher-level motion primitives instead of low-level joint control.
-              </li>
-              <li>
-                Focused on reliability, error handling, and educational usability for robotics labs.
-              </li>
-            </ul>
-            <div class="project-actions">
-              <a href="projects/franka-toolbox-bridge.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-
-          <!-- XLANG — placeholder -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/icons/XLANG_icon.png" alt="XLANG project preview" />
-            <div class="card-header">
-              <h3>XLANG — Vision-Language-Action General Policy</h3>
-              <span class="tag">Robotics · VLA</span>
-            </div>
-            <div class="project-actions">
-              <a href="projects/xlang.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-
-          <!-- Patky — placeholder -->
-          <article class="card project-card">
-            <img class="project-image" src="assets/project_pic/Patky/Patky_Pic_2.png" alt="Patky project preview" />
-            <div class="card-header">
-              <h3>Patky — Personalized Sports Trading Cards</h3>
-              <span class="tag">Entrepreneurship · Product</span>
-            </div>
-            <div class="project-actions">
-              <a href="projects/patky.html" class="btn primary">View Details</a>
-            </div>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -261,7 +286,7 @@
           <article class="card">
             <div class="card-header">
               <h3>XLANG Lab, HKU — Vision-Language-Action General Policy</h3>
-              <span class="tag">ICML/CoRL 2026 Target</span>
+              <span class="tag">ICML 2026 Target</span>
             </div>
             <p class="card-subtitle">Advisor: Prof. Tao Yu</p>
             <ul class="card-list-items">
