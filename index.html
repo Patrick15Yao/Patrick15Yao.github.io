@@ -5,6 +5,45 @@
   <title>Yutong Yao (Patrick) | AI Systems & Sports-Tech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline overrides to avoid cache issues on deploy */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 540px;
+    }
+    .project-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .tag-group {
+      display: flex;
+      gap: 0.4rem;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      margin-top: 0.15rem;
+    }
+    .tag-accent {
+      background-color: #dbeafe;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+    /* Research section: keep tags on the right and stack vertically */
+    #research .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    #research .tag-group {
+      flex-basis: auto;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -34,14 +73,9 @@
             I build end-to-end applied AI systems that connect multimodal perception to structured representations and decision-making through human-in-the-loop interaction.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn primary">View Projects</a>
             <a href="cv/cv%203.4.pdf" class="btn" target="_blank" rel="noopener">
               Download CV
             </a>
-          </div>
-          <div class="hero-meta">
-            <span>BEng Computer Science @ HKU</span>
-            <span>Research · Entrepreneurship · Quarterback</span>
           </div>
         </div>
         <div class="hero-photo-wrapper">
@@ -57,7 +91,7 @@
     <!-- Projects (moved before Education) -->
     <section id="projects" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Selected Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <p class="section-lead">
           These projects combine AI, systems, and real-world constraints, with a particular focus on
           sports performance and embodied intelligence.
@@ -210,173 +244,6 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-lead">
-          I am a Computer Science student at The University of Hong Kong, focused on AI systems,
-          robotics, and sports technology. My long-term goal is to build AI that enhances human
-          performance—systems that can understand intent, provide real-time guidance, and help people
-          make better decisions in both digital and physical environments.
-        </p>
-        <p>
-          I’ve worked across embodied AI, multimodal interfaces, and bioinformatics: building
-          Vision-Language-Action pipelines for fine-grained robotic manipulation, a multimodal
-          “Speak-to-Draw” analytics system, a robotics control bridge for a Franka arm, and a pipeline
-          for detecting A-to-I RNA editing from nanopore signals. Outside the lab, I’m the starting
-          quarterback and captain for the Hong Kong Cobras American football team and previously served
-          as Vice President of CSSA HKU’s Club Management Department.
-        </p>
-        <p>
-          I love working at the intersection of research and real-world systems—turning ideas into
-          working prototypes, and prototypes into products that people actually use.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="card-list">
-          <article class="card">
-            <div class="card-header">
-              <div class="card-title">
-                <img src="assets/icons/hku_icon.png" alt="HKU icon" class="card-logo" />
-                <h3>BEng in Computer Science</h3>
-              </div>
-              <span class="tag">2022 – Present</span>
-            </div>
-            <p class="card-subtitle">The University of Hong Kong (HKU)</p>
-            <ul class="card-list-items">
-              <li>First Class Honours; Dean’s List 2022–23 & 2023–24.</li>
-              <li>Focus: AI systems, machine learning, robotics, and software engineering.</li>
-              <li>Active in research, entrepreneurship, and student leadership.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <div class="card-header">
-              <div class="card-title">
-                <img src="assets/icons/UCDavis_icon.png" alt="UC Davis icon" class="card-logo" />
-                <h3>Undergraduate Exchange, Computer Science</h3>
-              </div>
-              <span class="tag">Jan – Jun 2025</span>
-            </div>
-            <p class="card-subtitle">University of California, Davis (UC Davis)</p>
-            <ul class="card-list-items">
-              <li>Achieved a perfect GPA (4.0/4.0) across 5 core Computer Science courses during exchange study.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Experience -->
-    <section id="research" class="section">
-      <div class="container">
-        <h2 class="section-title">Research Experience</h2>
-        <p class="section-lead">
-          I’ve contributed to four research projects spanning embodied AI, human–computer interaction,
-          robotics, and bioinformatics.
-        </p>
-
-        <div class="card-list">
-
-          <article class="card">
-            <div class="card-header">
-              <h3>XLANG Lab, HKU — Vision-Language-Action General Policy</h3>
-              <span class="tag">ICML 2026 Target</span>
-            </div>
-            <p class="card-subtitle">Advisor: Prof. Tao Yu</p>
-            <ul class="card-list-items">
-              <li>
-                Working on generalist VLA policies that follow fine-grained, multi-step robotic
-                manipulation commands instead of only coarse task labels.
-              </li>
-              <li>
-                Built an LLM-assisted data pipeline that discovers open-source manipulation datasets,
-                filters trajectories, and generates first-pass sub-action annotations from task
-                descriptions, videos, and state sequences.
-              </li>
-              <li>
-                Designed the system to reduce annotation time from minutes to seconds and scale toward
-                2M+ fine-grained trajectories.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>VIA Lab, UC Davis — Speak-to-Draw Analytics Tool</h3>
-              <span class="tag">EuroVis 2026 Target</span>
-            </div>
-            <p class="card-subtitle">Advisor: Prof. Dongyu Liu</p>
-            <ul class="card-list-items">
-              <li>
-                Developing “Speak-to-Draw,” a multimodal system where users explore time-series data
-                via natural language and interactive visualizations.
-              </li>
-              <li>
-                Co-designed the interaction flow from speech input to query parsing to visual
-                refinement, bridging HCI with backend analytics.
-              </li>
-              <li>
-                Implementing components across frontend, backend, and model integration to support
-                flexible, user-centered exploratory analysis.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>MEDCVR Lab, University of Toronto — Franka Toolbox Bridge</h3>
-              <span class="tag">Mitacs Globalink Scholar</span>
-            </div>
-            <p class="card-subtitle">Advisor: Prof. Lueder Kahrs</p>
-            <ul class="card-list-items">
-              <li>
-                Built <code>franka_toolbox_bridge</code>, a framework that exposes safe, high-level
-                APIs for controlling a Franka Emika arm from Python and C++.
-              </li>
-              <li>
-                Abstracted motion primitives, control loops, and error handling to make real-world
-                robot experiments easier and safer to prototype.
-              </li>
-              <li>
-                Integrated the bridge into UTM’s CSC376H5 course, enabling students to run hands-on
-                robotics labs on real hardware.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <h3>Bioinformatics Lab, HKU — A-to-I Editing with Nanopore</h3>
-              <span class="tag">Ongoing</span>
-            </div>
-            <p class="card-subtitle">Advisor: Prof. Ruibang Luo</p>
-            <ul class="card-list-items">
-              <li>
-                Exploring methods to detect A-to-I RNA editing using electrical signal data from
-                nanopore sequencing.
-              </li>
-              <li>
-                Working on benchmarking pipelines that compare different signal-level and
-                basecalling-based approaches on real datasets.
-              </li>
-              <li>
-                Aiming to better connect long-read sequencing signals with RNA editing biology.
-              </li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects section moved above -->
-
     <!-- Leadership & Activities -->
     <section id="leadership" class="section">
       <div class="container">
@@ -428,43 +295,153 @@
       </div>
     </section>
 
-    <!-- Interests & Contact -->
-    <section id="contact" class="section section-alt">
-      <div class="container contact-grid">
-        <div>
-          <h2 class="section-title">Interests</h2>
-          <ul class="pill-list">
-            <li>AI Systems</li>
-            <li>Computer Vision</li>
-            <li>Robotics</li>
-            <li>Sports Analytics</li>
-            <li>Human–AI Interaction</li>
-            <li>Bioinformatics</li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="section-title">Contact</h2>
-          <p class="section-lead">
-            I’m always happy to talk about research, sports-tech, or building real systems.
-          </p>
-          <div class="contact-links">
-            <!-- TODO: replace with your real email -->
-            <a href="mailto:your.email@example.com" class="btn primary">
-              Email Me
-            </a>
-            <div class="icon-links">
-              <a href="https://github.com/Patrick15Yao" target="_blank" rel="noopener">
-                GitHub
-              </a>
-              <!-- TODO: replace with your real LinkedIn URL -->
-              <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
-              <a href="cv/cv%203.4.pdf" target="_blank" rel="noopener">
-                CV (PDF)
-              </a>
+    
+
+    <!-- Education -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card-list">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <img src="assets/icons/hku_icon.png" alt="HKU icon" class="card-logo" />
+                <h3>The University of Hong Kong (HKU)</h3>
+              </div>
+              <span class="tag">2022 – Present</span>
             </div>
+            <p class="card-subtitle">Bachelar of Engineering in Computer Science</p>
+            <ul class="card-list-items">
+              <li>First Class Honours; Dean’s List 2022–23 & 2023–24.</li>
+              <li>CGPA: 3.82 out of 4.3 (First Class Honor)</li>
+              <li>Lee Shau Kee Scholarships for Student Enrichment (HKD 12,000)</li>
+              <li>Mitacs Globalink Research Internship Award (CAD $8,760)</li>
+              <li>HKSTP IDEATION Fund (HKD 100K)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <img src="assets/icons/UCDavis_icon.png" alt="UC Davis icon" class="card-logo" />
+                <h3>University of California, Davis (UC Davis)</h3>
+              </div>
+              <span class="tag">Jan – Jun 2025</span>
+            </div>
+            <p class="card-subtitle">Undergraduate Exchange, Computer Science</p>
+            <ul class="card-list-items">
+              <li>Achieved GPA (3.94/4.0) across 5 core Computer Science courses during exchange study.</li>
+            </ul>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Research Experience -->
+    <section id="research" class="section">
+      <div class="container">
+        <h2 class="section-title">Research Experience</h2>
+        <p class="section-lead">
+          I’ve contributed to four research projects spanning embodied AI, human–computer interaction,
+          robotics, and bioinformatics.
+        </p>
+
+        <div class="card-list">
+
+          <article class="card">
+            <div class="research-logo-wrap">
+              <img src="assets/icons/XLANG_icon.png" alt="XLANG Lab icon" class="research-logo" />
+            </div>
+            <div class="card-header">
+              <h3>XLANG Lab, HKU — Vision-Language-Action General Policy</h3>
+              <div class="tag-group">
+                <span class="tag">09/2025 – Present</span>
+                <span class="tag tag-accent">ICML 2026 Target</span>
+              </div>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Tao Yu</p>
+            <ul class="card-list-items">
+              <li>Contributing to training a VLA general policy capable of executing detailed natural language commands.</li>
+              <li>Developed an AI-assisted pipeline to filter open-source manipulation datasets and generate fine-grained trajectory labels at a scale exceeding 2 million samples, targeting ICML 2026 submission.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="research-logo-wrap">
+              <img src="assets/icons/via_icon.png" alt="VIA Lab icon" class="research-logo" />
+            </div>
+            <div class="card-header">
+              <h3>VIA Lab, UC Davis — Speak-to-Draw Analytics Tool</h3>
+              <div class="tag-group">
+                <span class="tag">01/2025 – 06/2025</span>
+                <span class="tag tag-accent">EuroVis 2026 Target</span>
+              </div>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Dongyu Liu</p>
+            <ul class="card-list-items">
+              <li>Built a multimodal time-series analytics platform “Speak to Draw,” enabling users to query data using natural language and sketches, resulting in a paper submitted to EuroVis 2026.</li>
+              <li>Designed a multimodal retrieval pipeline where LLMs map natural-language queries to high-level representations for an initial retrieval and sketches refine results via temporal similarity constraints.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="research-logo-wrap">
+              <img src="assets/icons/MEDCVR_icon.png" alt="MEDCVR Lab icon" class="research-logo" />
+            </div>
+            <div class="card-header">
+              <h3>MEDCVR Lab, University of Toronto — Franka Toolbox Bridge</h3>
+              <div class="tag-group">
+                <span class="tag">06/2025 – 09/2025</span>
+              </div>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Lueder Kahrs</p>
+            <ul class="card-list-items">
+              <li>Developed a unified Python framework integrating real and simulated control of multiple Franka Emika Panda robots, which was later adopted for teaching in UTM’s course CSC376H5 – Fundamentals of Robotics.</li>
+              <li>Enabled advanced motion planning, testing, and deployment in a single environment to support surgical robot autonomy.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="research-logo-wrap">
+              <img src="assets/icons/Bioinformatics_icon.png" alt="Bioinformatics Lab icon" class="research-logo" />
+            </div>
+            <div class="card-header">
+              <h3>Bioinformatics Lab, HKU — A-to-I Editing with Nanopore</h3>
+              <div class="tag-group">
+                <span class="tag">09/2024 – 08/2025</span>
+              </div>
+            </div>
+            <p class="card-subtitle">Advisor: Prof. Ruibang Luo</p>
+            <ul class="card-list-items">
+              <li>Benchmarked algorithms for detecting RNA A-to-I editing, contributing to improved genomic modification analysis.</li>
+              <li>Conducted comparative testing on existing models and datasets to evaluate accuracy and computational efficiency.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section moved above -->
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-lead">
+          I am a Computer Science student at The University of Hong Kong, focused on building end-to-end AI systems across embodied AI, multimodal interaction, and sports technology. My long-term goal is to develop applied AI systems that translate human intent into reliable, real-time decision support—bridging perception, structured reasoning, and action in both digital and physical environments.
+        </p>
+        <p>
+          Outside the lab, I am the starting quarterback and captain of the Hong Kong Cobras American football team, and serve as Vice President of CSSA HKU. I enjoy working at the intersection of research and real-world systems—turning ideas into working prototypes, and prototypes into tools that people can depend on.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p>Email: <a href="mailto:u3597462@connect.hku.hk">u3597462@connect.hku.hk</a></p>
+        <p>Phone: +85267914926</p>
       </div>
     </section>
   </main>

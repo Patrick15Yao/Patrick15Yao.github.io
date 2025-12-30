@@ -285,9 +285,21 @@ ul {
 }
 
 .card-logo {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
+}
+
+/* Research logos appear as a separate row above each research card title */
+.research-logo-wrap {
+  margin-bottom: 0.4rem;
+}
+
+.research-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .card-subtitle {
