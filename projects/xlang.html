@@ -15,26 +15,17 @@
 
       <h2>4.1 Overview</h2>
 
-      <p>In the XLANG Lab, I contribute to the CPT (Coarse-to-Fine Pretraining) & Sim2Real team, which aims to build a scalable, high-quality Vision-Language-Action (VLA) dataset for training the next generation of robotic agents.
-      The project integrates:</p>
-
-      <p>dataset collection & filtering,</p>
-
-      <p>metadata standardization,</p>
-
-      <p>fine-grained instruction rewriting,</p>
-
-      <p>semi-automated annotation with LLMs,</p>
-
-      <p>and Sim2Real-aligned preprocessing.</p>
-
-      <p>Our goal is to convert raw, diverse robot datasets into a unified format usable for large-scale pretraining and evaluation.</p>
-
+      <p>
+        The goal of this project is to enable the training of a <strong>general Vision–Language–Action (VLA) policy</strong> that can reliably follow <strong>fine-grained, physically grounded language instructions</strong> rather than coarse, underspecified commands. While many existing agents can execute high-level prompts such as <em>“open the drawer”</em>, they often fail to capture the <strong>detailed execution intent</strong> required for real-world manipulation, for example <em>“grasp the drawer rim and pull it outward”</em>. This work is motivated by the need to align <strong>language with precise action semantics</strong>, ensuring that instructions encode <strong>contact, motion, and control structure</strong>. By emphasizing <strong>fine-grained language grounding</strong> during pretraining, the resulting VLA policy supports <strong>stronger instruction following</strong>, <strong>improved compositional generalization</strong>, and <strong>more reliable real-world deployment</strong>.
+      </p>
+        
+        
+        
       <h2>4.2 My Role &amp; Contributions</h2>
 
       <h3>4.2.1 Automated Dataset Discovery &amp; Paper Filtering</h3>
 
-      <p>Based on the pipeline ("Crawl → Filter → GPT-5 Paper Screening") ,</p>
+      
 
       <p>I worked on:</p>
 
@@ -46,80 +37,47 @@
 
       <p>This allows the team to rapidly expand beyond the 72 datasets in OXE.</p>
 
-      <h3>4.2.2 Dataset Downloading &amp; Conversion Scripts</h3>
+      <h3>4.2.2 Dataset Downloading &amp; Format Conversion Infrastructure</h3>
 
-      <p>Based on the “Download Script” description on  (16 datasets, 2.1M trajectories) ,</p>
+<p>
+(1) I built a large-scale dataset aggregation pipeline that downloads and integrates <strong>all OXE datasets</strong> together with <strong>20+ additional robotic datasets outside OXE</strong>, including AgiBot, RoboMIND, and REASSEMBLE, resulting in a corpus of <strong>over 2 million trajectories beyond OXE</strong>.
+</p>
 
-      <p>I built scripts that:</p>
+<p>
+(2) I implemented unified conversion scripts that <strong>standardize heterogeneous dataset formats</strong> by extracting, reorganizing, and converting all datasets into a <strong>single LeRobot-compatible format</strong>, enabling consistent large-scale VLA pretraining and seamless dataset expansion.
+</p>
 
-      <p>download raw datasets from various sources (AgiBot, RoboMIND, REASSEMBLE, etc.)</p>
+      <h3>4.2.3 Fine-Grained Instruction Annotation (LLM-Driven Human+AI Pipeline)</h3>
 
-      <p>extract, reorganize, and standardize folder structures</p>
+<p>
+I designed and implemented a first-pass annotation pipeline that combines <strong>large language models (LLMs)</strong> with <strong>Grounding DINO</strong> to automate fine-grained instruction labeling across large-scale robotic datasets.
+The pipeline generates structured initial annotations for each trajectory, substantially reducing the manual effort required from human annotators.
+</p>
 
-      <p>convert into RLDS or LeRobot formats (e.g., resizing images, removing redundant velocity data — see)</p>
+<p>
+Specifically, the system:
+</p>
 
-      <p>My scripts were used as the base infrastructure for the entire team.</p>
+<p>
+(1) uses Grounding DINO to ground object references and interaction regions in visual observations,
+</p>
 
-      <h3>4.2.3 Dataset Inspection &amp; Attribute Standardization</h3>
+<p>
+(2) leverages LLMs (e.g., Gemini) to generate step-level action sequences from raw videos,rewrites coarse template instructions into <strong>fine-grained, executable substeps</strong>,identifies trajectory-level variations across demonstrations
 
-      <p>Using the unified dataset-checking template shown in:</p>
+</p>
 
-      <p>AgiBot World structure </p>
+<p>
+(3) produces consistent annotations across multi-view camera setups without manual alignment.
+</p>
 
-      <p>SomethingSomethingV2 example </p>
+<p>
+<strong>At the end,</strong> by providing a high-quality first pass, the pipeline shifts human annotation from full manual labeling to <strong>lightweight refinement and verification</strong>, leading to significant reductions in annotation time and cost.
+</p>
 
-      <p>OXE distribution plots </p>
-
-      <p>I examined dataset attributes:</p>
-
-      <p>scene types</p>
-
-      <p>task types</p>
-
-      <p>camera views</p>
-
-      <p>frame counts</p>
-
-      <p>action modalities</p>
-
-      <p>instruction quality</p>
-
-      <p>and added them to the central Google Sheet used to auto-generate the UI.</p>
-
-      <p>This lets the team quickly “understand a dataset in under 2 minutes.”</p>
-
-      <h3>4.2.4 Fine-Grained Instruction Annotation (LLM-Driven Human+AI Pipeline)</h3>
-
-      <p>I designed and implemented the first-pass LLM-based instruction annotation pipeline to automate fine-grained labeling across large robotic datasets. Using models such as Gemini, the system:</p>
-
-      <p>generates step-level action sequences from raw videos,</p>
-
-      <p>rewrites coarse template instructions into fine-grained, actionable substeps,</p>
-
-      <p>identifies trajectory-level differences across demonstrations, and</p>
-
-      <p>produces consistent multi-view annotations without manual alignment.</p>
-
-      <p>This reduces annotation cost dramatically:
-      LLMs generate structured labels automatically, and human annotators only perform lightweight refinement and verification rather than annotating from scratch.</p>
-
-      <p>The resulting workflow scales to thousands of trajectories and significantly improves the efficiency of building high-quality VLA training data.</p>
-
-      <h3>4.2.5 Large-Scale Dataset Processing (Sim2Real Alignment)</h3>
-
-      <p>Some datasets require significant preprocessing for Sim2Real consistency:</p>
-
-      <p>clipping long videos </p>
-
-      <p>aligning multi-camera views </p>
-
-      <p>cleaning action signals</p>
-
-      <p>resizing frames</p>
-
-      <p>filtering failed trajectories </p>
-
-      <p>I handled several of these preprocessing steps to ensure clean, training-ready trajectories.</p>
+<p>
+This human-in-the-loop workflow scales to thousands of trajectories and enables efficient construction of high-quality, instruction-rich VLA training data.
+</p>
 
     </section>
   </main>

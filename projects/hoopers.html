@@ -1,13 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoopers — Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
 <section class="project-section">
-  <h1>5. Hoopers AI-Powered Basketball Shooting Analysis Sleeve</h1>
+  <h1>5. Hoopers AI Powered Basketball Shooting Analysis Sleeve</h1>
   <div class="std-img">
     <img src="../assets/project_pic/Hoopers/Hoopers_Pic_1.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
   </div>
   <h2>Overview</h2>
   <p>
     Hoopers was my first startup, born from a simple observation: amateur players rarely have access 
-    to professional shooting coaches. We set out to bring coaching-level feedback to anyone, anywhere 
-    by combining wearable sensing with computer vision and pro-level shooting data.
+    to professional shooting coaches. We set out to bring coaching level feedback to anyone, anywhere 
+    by combining wearable sensing with computer vision and pro level shooting data.
   </p>
   <div class="std-img">
     <img src="../assets/project_pic/Hoopers/Hoopers_Pic_6.png" alt="Hoopers project preview" style="width: 500px; max-width: 100%; height: auto; display: block; margin: 0 auto;">
@@ -16,7 +26,7 @@
   <h2>System Design</h2>
   <p>
     Our prototype used a wearable sleeve with <strong>3 IMUs</strong> and <strong>1 IR sensor</strong>, connected via Bluetooth, 
-    to capture detailed motion of the shooting arm and wrist. In parallel, we used <strong>OpenPose</strong> in post-processing 
+    to capture detailed motion of the shooting arm and wrist. In parallel, we used <strong>OpenPose</strong> in post processing 
     to extract full-body keypoints from video, tracking joints such as the ankle, knee, hip, elbow, wrist, and shoulder.
   </p>
   <div class="std-img">
@@ -29,9 +39,9 @@
   <p>
     From these signals, we computed velocity, acceleration, and joint movement patterns, then compared each player’s 
     shooting motion against a professional dataset consisting of <strong>200 hardware+video samples</strong> and 
-    <strong>500 NBA video-only samples</strong>. We clustered pros into four archetypal shooting styles and matched each user 
-    to the nearest style based on timing and joint-angle dynamics, generating targeted feedback to help them 
-    “close the gap” toward that style.
+    <strong>500 NBA video only samples</strong>. We clustered pros into four archetypal shooting styles and matched each user 
+    to the nearest style based on timing and joint angle dynamics, generating targeted feedback to help them 
+    close the gap toward that style.
   </p>
 
   <h2>Recognition & Outcome</h2>
@@ -66,8 +76,8 @@
   </p>
 
   <p>
-    Early production was slow—segmentation, layer alignment, and bio writing took hours per card. By integrating 
-    <strong>SAM3</strong> for fast segmentation, automating layer handling, and generating bios through prompt-engineered scripts, 
+    Early production was slow segmentation, layer alignment, and bio writing took hours per card. By integrating 
+    <strong>SAM2</strong> for fast segmentation, automating layer handling, and generating bios through prompt engineered scripts, 
     I reduced creation time from hours to minutes. The result was a product users genuinely wanted: we have now served 
     <strong>200+ customers</strong>, partnered with teams in Hong Kong and Zhuhai, and built a steady revenue of around 
     <strong>HKD 2,000 per month</strong>. This second attempt reinforced a lesson I carry forward: 
@@ -80,3 +90,6 @@
   </div>
 
 </section>
+  </main>
+</body>
+</html>
