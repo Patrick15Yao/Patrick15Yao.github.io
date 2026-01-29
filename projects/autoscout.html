@@ -1,115 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AutoScout</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoScout — Project Summary</title>
+  <style>
+    :root { --maxw: 920px; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      color: #111;
+      background: #fff;
+    }
+    main { max-width: var(--maxw); margin: 0 auto; padding: 40px 20px; }
+    h1 { font-size: 2rem; margin: 0 0 12px; }
+    h2 { font-size: 1.35rem; margin: 28px 0 10px; }
+    h3 { font-size: 1.1rem; margin: 22px 0 8px; }
+    p { margin: 10px 0; }
+    figure {
+      margin: 16px 0 20px;
+      padding: 12px;
+      border: 1px solid #e6e6e6;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .muted { color: #444; }
+  </style>
 </head>
+
 <body>
-  <main class="container">
-    <section class="project-section">
+  <main>
+    <header>
+      <h1>AutoScout</h1>
+      <p class="muted">End-to-end AI system for automated American football film analysis.</p>
+    </header>
 
-      <h1>2. AutoScout — AI System for Automated American Football Film Analysis</h1>
+    <section id="what-is-autoscout">
+      <h2>1. What is AutoScout</h2>
+      <p>
+        AutoScout is an end-to-end AI system that automates American football film analysis by converting raw game footage
+        into structured 2D player trajectories and tactical insights, reducing the need for manual expert annotation.
+      </p>
+    </section>
 
-      <h2>Problem &amp; Motivation</h2>
+    <section id="motivation">
+      <h2>2. Motivation</h2>
+      <p>
+        Traditional football film study relies on labor-intensive manual analysis by domain experts, making it slow, costly,
+        and difficult to scale, while existing computer-vision approaches typically address only isolated tasks such as
+        formation recognition or field registration.
+      </p>
+      <p>
+        Motivated by the lack of a complete pipeline that handles multi-player detection under occlusion, spatial field
+        mapping, and play-level interpretation, this project aims to deliver a unified system for scalable, objective
+        football scouting.
+      </p>
+    </section>
 
-      <p>Manual football film study requires experts to watch and annotate hundreds of hours of broadcast footage each season, making the process labor-intensive, time-consuming, and prone to human error. Existing research typically focuses only on single components such as formation recognition or homography alignment, and no prior work provides a full end-to-end pipeline that goes from raw broadcast film to tactical interpretation .</p>
+    <section id="methodology">
+      <h2>3. Methodology</h2>
+      <p>
+        AutoScout consists of three sequential phases that convert raw football footage into tactical insights. Phase 1
+        detects and maps player positions onto a 2D field, Phase 2 performs team labeling and persistent player ID assignment,
+        and Phase 3 conducts pattern recognition and generates insight-driven analytical reports.
+      </p>
 
-      <p>AutoScout aims to close this gap by building a system that automates detection, tracking, field mapping, and tactical pattern recognition.</p>
+      <figure id="figure1">
+        <img src="../assets/Autoscout/figure1.png" alt="Figure 1: AutoScout workflow overview (Phase 1–3)." />
+      </figure>
+      <figure id="figure11">
+        <img src="../assets/Autoscout/figure11.png" alt="Figure 1: AutoScout workflow overview (Phase 1–3)." />
+      </figure>
+      <figure id="figure12">
+        <img src="../assets/Autoscout/figure12.png" alt="Figure 1: AutoScout workflow overview (Phase 1–3)." />
+      </figure>
 
-      <!-- === DIAGRAM 1 FROM WORD FILE === -->
-      <div class="std-img">
-        <img src="../assets/project_pic/AutoScout/AutoScout_Pic_1.png" alt="AutoScout diagram 1" style="width: 500px; max-width: 100%; height: auto;">
-      </div>
+      <section id="phase1">
+        <h3>3.1 Phase 1 — Detect &amp; Map</h3>
 
-      <h2>Phase 1 — Detection, Tracking &amp; 2D Field Mapping</h2>
+        <p>
+          We manually annotated 1,500 broadcast frames, applied horizontal flip augmentation to expand the dataset to 3,000
+          frames with over 66,000 bounding boxes, and fine-tuned a YOLOv8 model for 80 epochs to detect all 22 on-field
+          players, outputting their bounding boxes and image-space coordinates per frame.
+        </p>
 
-      <p>This stage converts raw broadcast footage into structured spatial data.</p>
+        <figure id="figure2">
+          <img src="../assets/Autoscout/figure2.png" alt="Figure 2: YOLOv8 player detection training pipeline." />
+          <figcaption>Figure 2. YOLOv8 player detection training pipeline.</figcaption>
+        </figure>
 
-      <h3>Player Detection (YOLOv8).</h3>
-      <p>A YOLOv8 model is fine-tuned on a custom dataset of 1,500 manually labeled broadcast frames, enabling reliable detection of offensive players, defensive players, and referees .</p>
+        <p>
+          We trained two YOLOv8 segmentation models—one for yard lines and one for hash marks—each using 700 annotated
+          broadcast frames.
+        </p>
+        <p>
+          The intersections of the detected landmarks are paired with their known real-world field coordinates to compute a
+          RANSAC-based homography for mapping broadcast-view positions to a canonical field.
+        </p>
 
-      <h3>Identity Tracking (ByteTrack).</h3>
-      <p>ByteTrack assigns consistent player IDs across consecutive frames, forming continuous movement trajectories for all 22 players throughout the play. </p>
+        <figure id="figure3">
+          <img src="../assets/Autoscout/figure3.png" alt="Figure 3: Landmark detection and homography estimation pipeline." />
+          <figcaption>Figure 3. Landmark detection and homography estimation pipeline.</figcaption>
+        </figure>
 
-      <h3>Landmark Detection (YOLO+OpenCV).</h3>
-      <p>YOLO and OpenCV are used to detect the two in-bounds hash-mark lines, which serve as geometric anchors for camera–field alignment. These landmarks are extracted using supervised detection methods trained on the same dataset .</p>
+        <figure id="figure4">
+          <img src="../assets/Autoscout/figure4.png" alt="Figure 4: Projection from broadcast view to canonical top-down field view." />
+          <figcaption>Figure 4. Projection from broadcast view to canonical top-down field view.</figcaption>
+        </figure>
+      </section>
 
-      <h3>Homography Estimation (RANSAC).</h3>
-      <p>A RANSAC-based homography algorithm computes the 3×3 transformation matrix that maps pixel positions to real-field coordinates, allowing all players to be projected onto a standardized 2D top-down field view .</p>
+      <section id="phase2">
+        <h3>3.2 Phase 2 — Team Labelling &amp; Player ID Tracking</h3>
 
-      <h3>Outcome.</h3>
-      <p>The output of Phase 1 is a 2D field visualization containing all player trajectories, serving as the basis for tactical interpretation.</p>
+        <p>
+          For each detected player bounding box, we crop the jersey region and convert it from RGB to CIELAB color space.
+        </p>
+        <p>
+          We then extract per-channel mean and standard deviation features and apply 2-means clustering to assign team labels
+          corresponding to the two opposing teams.
+        </p>
 
-      <h2>Phase 2 — Pattern Recognition</h2>
+        <figure id="figure5">
+          <img src="../assets/Autoscout/figure5.png" alt="Figure 5: Team labeling via jersey color clustering." />
+          <figcaption>Figure 5. Team labeling via jersey color clustering.</figcaption>
+        </figure>
 
-      <p>(Corresponds to the second diagram, upper half)</p>
+        <p>
+          We use a Kalman filter–based tracking pipeline to predict each player’s position in the top-down field coordinate
+          space across frames.
+        </p>
+        <p>
+          New detections are associated with predicted positions using nearest-neighbor matching based on Euclidean distance
+          to maintain consistent player identities.
+        </p>
 
-      <!-- === DIAGRAM 2 FROM WORD FILE === -->
-      <div class="std-img">
-        <img src="../assets/project_pic/AutoScout/AutoScout_Pic_2.png" alt="AutoScout diagram 2" style="width: 400px; max-width: 100%; height: auto;">
-      </div>
+        <figure id="figure6">
+          <img src="../assets/Autoscout/figure6.png" alt="Figure 6: Kalman-filter tracking and data association for persistent player IDs." />
+          <figcaption>Figure 6. Kalman-filter tracking and data association for persistent player IDs.</figcaption>
+        </figure>
 
-      <p>Using the 2D trajectories generated in Phase 1, supervised learning models classify both offensive and defensive structural elements:</p>
+        <p>
+          By combining team labeling and temporal tracking, Phase 2 produces a structured spatiotemporal representation where
+          each player is assigned a team label and a persistent ID, enabling reliable 2D trajectory reconstruction and
+          downstream tactical analysis.
+        </p>
+      </section>
 
-      <h3>Offensive labels include:</h3>
+      <section id="phase3">
+        <h3>3.3 Phase 3 — Pattern Recognition &amp; Report Generation</h3>
 
-      <p>Formation (e.g., Twins Right)</p>
+        <p>
+          Using structured player trajectories from Phase 2, we train a supervised pattern recognition model on both real
+          broadcast-derived data and manually constructed synthetic plays to identify formations, play types, and individual
+          player behaviors.
+        </p>
+        <p>
+          The recognized patterns are aggregated across games to generate automated scouting reports summarizing opponent
+          tendencies, play-calling distributions, and player-specific behaviors.
+        </p>
 
-      <p>Personnel groups (e.g., 11-personnel)</p>
-
-      <p>Play type (run vs pass)</p>
-
-      <p>Protection schemes (e.g., 7-man protection)</p>
-
-      <h3>Defensive labels include:</h3>
-
-      <p>Coverage type (e.g., Cover 1, Cover 2)</p>
-
-      <p>Front alignment (e.g., 4-3)</p>
-
-      <p>Blitz tendencies</p>
-
-      <p>Man vs zone structure</p>
-
-      <p>This turns raw trajectories into structured tactical metadata.</p>
-
-      <h2>Phase 3 — Insights &amp; Prediction</h2>
-
-      <p>(Corresponds to second diagram, bottom half)</p>
-
-      <p>Aggregated labels from multiple games are summarized into team-level statistical profiles, such as:</p>
-
-      <p>formation frequency,</p>
-
-      <p>run–pass balance,</p>
-
-      <p>coverage tendencies,</p>
-
-      <p>personnel usage .</p>
-
-      <p>A lightweight supervised model then predicts likely play tendencies—such as expected coverage or blitz probability—based on historical patterns. The system finally provides data-driven play-call recommendations for scouting and game preparation.</p>
-
-      <h2>Challenges &amp; Mitigation</h2>
-
-      <p>The most difficult scenario occurs near the line of scrimmage, where players overlap heavily, and linemen adopt crouched postures. To address this:</p>
-
-      <h3>Training set expansion with overlapped-focused samples.</h3>
-
-      <h3>Two-stage post-processing:</h3>
-
-      <p>accept downfield detections first,</p>
-
-      <p>infer remaining players near the trench based on confidence ordering and expected player count.</p>
-
-      <p>This greatly stabilizes detection in congested regions .</p>
-
-      <h2>Current Status</h2>
-
-      <p>The detection, tracking, and landmark modules have been completed, and the system architecture has been finalized. Pattern recognition, play prediction, and interface implementation are in progress according to the scheduled milestones (Jan–Mar 2026) .</p>
-
-      <p>The diagrams presented in this portfolio represent the finalized system design and prototype visualizations based on the completed components.</p>
-
+        <figure id="figure7">
+          <img src="../assets/Autoscout/figure7.png" alt="Figure 7: Pattern recognition and analysis report generation." />
+          <figcaption>Figure 7. Pattern recognition and analysis report generation.</figcaption>
+        </figure>
+      </section>
     </section>
   </main>
 </body>
